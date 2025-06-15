@@ -1,0 +1,141 @@
+:root {
+    --bg-color: #f0f2f5;
+    --calculator-bg: #ffffff;
+    --display-bg: #e8eaed;
+    --display-text-color: #333;
+    --button-bg: #f8f9fa;
+    --button-hover-bg: #e9ecef;
+    --button-active-bg: #d6d8db;
+    --operator-button-bg: #ff9f0a;
+    --operator-button-hover-bg: #f09400;
+    --operator-button-text-color: #ffffff;
+    --control-button-bg: #6c757d;
+    --control-button-hover-bg: #5a6268;
+    --control-button-text-color: #ffffff;
+    --border-color: #ced4da;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: var(--bg-color);
+    font-family: var(--font-family);
+}
+
+.calculator {
+    width: 340px; /* Slightly wider for 4 buttons per row + padding */
+    background-color: var(--calculator-bg);
+    border-radius: 12px;
+    box-shadow: 0 8px 25px var(--shadow-color);
+    padding: 20px;
+    border: 1px solid var(--border-color);
+}
+
+#display {
+    width: calc(100% - 20px); /* Full width minus padding */
+    padding: 15px 10px;
+    font-size: 2.5em;
+    text-align: right;
+    color: var(--display-text-color);
+    background-color: var(--display-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px; /* Gap between buttons */
+}
+
+.row { /* Not strictly needed with grid on .buttons, but kept for structure consistency if complex layouts arise */
+    display: contents; /* Makes row act as a passthrough for grid items */
+}
+
+button {
+    padding: 20px;
+    font-size: 1.2em;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: var(--button-bg);
+    color: #333;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: var(--button-hover-bg);
+}
+
+button:active {
+    background-color: var(--button-active-bg);
+    transform: translateY(1px); /* Slight press effect */
+}
+
+/* Number buttons */
+button[data-num] {
+    /* Default styling is fine */
+}
+
+/* Operator buttons */
+button[data-op],
+button#btn-equals {
+    background-color: var(--operator-button-bg);
+    color: var(--operator-button-text-color);
+}
+
+button[data-op]:hover,
+button#btn-equals:hover {
+    background-color: var(--operator-button-hover-bg);
+}
+
+/* Control buttons (CE, C, DEL) */
+button[data-action="clear"],
+button[data-action="clear-entry"],
+button[data-action="backspace"],
+button[data-action="negate"] {
+    background-color: var(--control-button-bg);
+    color: var(--control-button-text-color);
+}
+
+button[data-action="clear"]:hover,
+button[data-action="clear-entry"]:hover,
+button[data-action="backspace"]:hover,
+button[data-action="negate"]:hover {
+    background-color: var(--control-button-hover-bg);
+}
+
+
+/* Specific button adjustments if needed */
+#btn-zero {
+    /* grid-column: span 2; */ /* Example if zero button was wider, not used here */
+}
+
+#btn-equals {
+    /* background-color: #28a745; */ /* If a different color for equals is desired */
+}
+
+/* Accessibility: focus state */
+button:focus {
+    outline: 2px solid var(--operator-button-bg);
+    outline-offset: 2px;
+}
+
+button[data-op]:focus,
+button#btn-equals:focus {
+    outline-color: var(--button-bg);
+}
+
+button[data-action]:focus {
+     outline-color: var(--button-bg);
+}

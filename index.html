@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="display" value="0" readonly>
+        <div class="buttons">
+            <!-- Row 1: Scientific -->
+            <div class="row">
+                <button data-op="sqrt">√</button>
+                <button data-op="power">^</button>
+                <button data-op="log">log</button>
+                <button data-op="ln">ln</button>
+            </div>
+            <!-- Row 2: Scientific -->
+            <div class="row">
+                <button data-op="sin">sin</button>
+                <button data-op="cos">cos</button>
+                <button data-op="tan">tan</button>
+                <button data-op="pi">π</button>
+            </div>
+            <!-- Row 3: Controls & Numbers -->
+            <div class="row">
+                <button data-action="clear-entry">CE</button>
+                <button data-action="clear">C</button>
+                <button data-action="backspace">DEL</button>
+                <button data-op="divide" class="operator">/</button>
+            </div>
+            <!-- Row 4: Numbers & Operator -->
+            <div class="row">
+                <button data-num="7">7</button>
+                <button data-num="8">8</button>
+                <button data-num="9">9</button>
+                <button data-op="multiply" class="operator">*</button>
+            </div>
+            <!-- Row 5: Numbers & Operator -->
+            <div class="row">
+                <button data-num="4">4</button>
+                <button data-num="5">5</button>
+                <button data-num="6">6</button>
+                <button data-op="subtract" class="operator">-</button>
+            </div>
+            <!-- Row 6: Numbers & Operator -->
+            <div class="row">
+                <button data-num="1">1</button>
+                <button data-num="2">2</button>
+                <button data-num="3">3</button>
+                <button data-op="add" class="operator">+</button>
+            </div>
+            <!-- Row 7: Numbers, Decimal & Equals -->
+            <div class="row">
+                <button data-num="0" id="btn-zero">0</button>
+                <button data-num=".">.</button>
+                <button data-action="negate">+/-</button>
+                <button data-action="equals" class="operator" id="btn-equals">=</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
